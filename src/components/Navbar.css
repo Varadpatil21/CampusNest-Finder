@@ -1,0 +1,36 @@
+nav {
+    display: flex;
+
+    justify-content:space-evenly;
+    height: 100%;
+    width: 80%;
+    margin: auto;
+    gap: 1em;
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4em;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.auth{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2em;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
