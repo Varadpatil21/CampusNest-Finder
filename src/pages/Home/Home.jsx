@@ -1,11 +1,7 @@
-import React from 'react';
-import './Home.css';
-
+import React from 'react'
 
 export const Home = () => {
   return (
-    <div className='home'>
-      <h1>My Content</h1>
-    </div>
-  );
-};
+    <div>Home</div>
+  )
+}
