@@ -1,23 +1,40 @@
-nav {
+.navbar {
     display: flex;
-
-    justify-content:space-evenly;
-    height: 100%;
-    width: 80%;
-    margin: auto;
-    gap: 1em;
+    justify-content: space-between;
+    align-items: center;
+    gap:15em;
 }
 
-.content{
+nav {
+border-radius: 20px;
+    display: flex;
+    background-color: rgb(16, 15, 15);
+    justify-content: space-evenly;
+    margin-left: -5px;
+    padding: 1px;
+    width: 100%;
+    margin: auto;
+    gap: 1em;
+   margin-top: -37px;
+   position: sticky; 
+  margin-left: 0;
+  
+    top: 0; 
+   
+    z-index: 1000;
+}
+
+.content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 4em;
     font-size: 20px;
-    font-weight: 800;
+    font-weight: 1000;
+    color:white;
 }
 
-.auth{
+.auth {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -29,8 +46,78 @@ nav {
 
 a {
     text-decoration: none;
+    color:white;
 }
 
 li {
     list-style: none;
+}
+
+Link {
+    color: brown;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+ 
+
+}
+
+.img {
+ position:absolute;
+    border: 2px solid black;
+ width: 90px;
+ height: 90px;
+ margin-top: -23px;
+ border-radius: 15px;
+}
+
+
+
+.content Link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #ffee10;
+    transition: .5s;
+    transform: scale(.9);
+    z-index: -1;
+}
+
+.content a:hover::before {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ffee10;
+}
+
+.content a:hover {
+    padding:10px;
+    border-radius: 10px;
+    color: #ffee10;
+    box-shadow: 0 0 5px #ffee10;
+    text-shadow: 0 0 5px #f0e875;
+}
+
+.login{
+    background-color: rgba(5, 255, 39, 0.677);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.signup{
+    background-color: rgba(15, 143, 255, 0.677);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.login:hover{
+    background-color: rgba(5, 255, 38, 0.36);
+}
+
+.signup:hover{
+    background-color: rgba(15, 143, 255, 0.405);
 }

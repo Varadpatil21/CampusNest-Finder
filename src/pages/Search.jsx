@@ -1,7 +1,11 @@
 import React from 'react'
+import {MyMap} from '../components/MyMap/MyMap'
 
 export const Search = () => {
   return (
-    <div>Search</div>
+    <div>
+   
+      <MyMap/>
+    </div>
   )
 }

@@ -6,6 +6,7 @@ import { auth } from '../../Firebase.js'
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { CgProfile } from "react-icons/cg";
+import Logo from "../assets/images/image.png"
 
 export const Navbar = () => {
   const [user, setUser] = useState(null);
@@ -35,9 +36,15 @@ export const Navbar = () => {
 
   return (
     <nav>
+      <div className="navbar">
+      <div className='logo'>
+        <img className='img' src={Logo} alt="Logo" />
+      </div>
+      <div className="list">
       <ul className="content">
+
         <li>
-          <Link to="/home">Home</Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
           <Link to="/search">Search</Link>
@@ -46,6 +53,8 @@ export const Navbar = () => {
           <Link to="/book-room">Book Room</Link>
         </li>
       </ul>
+      </div>
+      <div className="authenticate">
       <ul className="auth">
         {user ? (
           <li>
@@ -60,14 +69,16 @@ export const Navbar = () => {
         ) : (
           <>
             <li>
-              <Link to="/login">Login</Link>
+              <Link to="/login" className='login'>Login</Link>
             </li>
             <li>
-              <Link to="/signup">SignUp</Link>
+              <Link to="/signup" className='signup'>SignUp</Link>
             </li>
           </>
         )}
       </ul>
+      </div>
+      </div>
     </nav>
   );
 };
