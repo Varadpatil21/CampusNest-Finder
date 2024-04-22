@@ -1,0 +1,27 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 5px;
+    margin-top: 50px;
+    height: 75px;
+
+  }
+  
+  .grid-cell {
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  .booked {
+    background-color: red;
+  }
+  
+  .not-booked {
+    background-color: green;
+  }
+  h2{
+    margin-top: 25px;
+  }
+  

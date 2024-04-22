@@ -1,11 +1,11 @@
-import './Login.css'
+import React, { useState } from 'react';
 import { MdOutlineEmail } from "react-icons/md";
 import { FaLock } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../../Firebase';
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom';
+import './Login.css';
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -36,18 +36,14 @@ export const Login = () => {
       <div className="wrapper">
         <form action="">
           <h1>Login</h1>
-        
-            <div className='input'>
-              <input type="email" placeholder='Email' onChange={(e) => setEmail(e.target.value)} required />
-              <MdOutlineEmail className='icon' />
-            </div>
-            <div className="password-box">
-              <input type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)} required />
-              <FaLock className='icon' />
-            </div>
-
-          
-
+          <div className='input'>
+            <input type="email" placeholder='Email' onChange={(e) => setEmail(e.target.value)} required />
+            <MdOutlineEmail className='icon' />
+          </div>
+          <div className="password-box">
+            <input type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)} required />
+            <FaLock className='icon' />
+          </div>
           <div className="forgot">
             <Link to="/forgot">Forgot Password</Link>
           </div>
@@ -57,7 +53,6 @@ export const Login = () => {
           </div>
         </form>
       </div>
-
       {showInvalidCredentials && (
         <div className="invalid-credentials-popup">
           Invalid credentials. Please try again.

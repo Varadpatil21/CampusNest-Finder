@@ -5,13 +5,16 @@ import { FaUser } from "react-icons/fa";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import '../Login/Login.css';
-import { auth } from '../../../Firebase';
+import { auth, database } from '../../../Firebase'; // Import auth and database from Firebase
+import { ref,set } from "firebase/database";
+
 
 export const SignUp = () => {
     const navigate = useNavigate();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [role, setRole] = useState('');
     const [accountcreated, setAccountCreated] = useState(false);
     const [alreadyExist,setAlreadyExist]=useState(false);
     const [minPassword,setMinPassword]=useState(true);
@@ -19,7 +22,7 @@ export const SignUp = () => {
         if (accountcreated) {
             const timer = setTimeout(() => {
                 setAccountCreated(false);
-                navigate("/login");
+                navigate("/");
             }, 2000); 
             return () => clearTimeout(timer);
         }
@@ -34,12 +37,18 @@ export const SignUp = () => {
     
     const onSubmit = async (e) => {
         e.preventDefault();
-
+    
         await createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-           
                 const user = userCredential.user;
-                console.log(user);
+                // Store user details in Realtime Database
+                const userRef = ref(database, 'users/' + user.uid); // 'ref' is imported from 'firebase/database'
+                set(userRef, {
+                    name: name,
+                    email: email,
+                    role: role,
+                });
+                console.log("data added successfully")
                 setAccountCreated(true);
                 
             })
@@ -53,6 +62,7 @@ export const SignUp = () => {
                 console.log(errorCode,errorMessage);
             });
     };
+    
 
     return (
         <div className='my-container'>
@@ -64,15 +74,25 @@ export const SignUp = () => {
                         <input type="text" name='name' placeholder='Name' onChange={(e) => setName(e.target.value)} required />
                         <FaUser className='icon' />
                     </div>
-                    <div>
+                    <div className='email'>
                         <input type="email" name='email' placeholder='Email' onChange={(e) => setEmail(e.target.value)} required />
                         <MdOutlineEmail className='icon' />
                     </div>
-                   <input type="password" name='password' onChange={(e) => {
-    setPassword(e.target.value);
-    checkSize(e.target.value);
-}} placeholder='Password' required />
+                    <div className="password-box">
+                    <input type="password" name='password' onChange={(e) => {
+                        setPassword(e.target.value);
+                        checkSize(e.target.value);
+                    }} placeholder='Password' required />
+                     <FaLock className='icon' />
+                    </div>
 
+                    <div>
+                    <select className="role-select" onChange={(e) => setRole(e.target.value)} value={role} required>
+        <option value="">Select Role</option>
+        <option value="Owner">Owner</option>
+        <option value="Student">Student</option>
+    </select>
+                    </div>
 
                     <button type='submit' className='submit' onClick={onSubmit}>SignUp</button>
 
@@ -89,12 +109,12 @@ export const SignUp = () => {
                     Account Created Successfully
                 </div>
             )}
-              {alreadyExist && (
+            {alreadyExist && (
                 <div className="user-already-exist-popup">
                     User Already Exist
                 </div>
             )}
-              {minPassword && (
+            {minPassword && (
                 <div className="min-password-popup">
                     Enter at least 6 character password
                 </div>

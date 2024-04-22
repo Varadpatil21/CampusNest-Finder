@@ -9,8 +9,8 @@ export const Home = () => {
         <section className="hero">
           <h1><span>CampusNest Finder</span></h1>
           <h3><span>Discover Your Nest Away from Home with CampusNest Finder</span></h3>
-          <div className="search">
-          <Link to="/search"> <button>Search PG</button></Link>
+          <div className="search1">
+          <Link to="/search"> <button className='search'>Search PG</button></Link>
           </div>
           
         </section>
@@ -51,9 +51,9 @@ export const Home = () => {
       <div class="footer-column">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Search</a></li>
-          <li><a href="#">Book Room</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/search">Search</a></li>
+          <li><a href="/book-room">Book Room</a></li>
           <li><a href="#">Contact Us</a></li>
         </ul>
       </div>

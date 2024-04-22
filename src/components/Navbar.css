@@ -2,22 +2,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap:15em;
+    gap:20em;
 }
 
 nav {
 border-radius: 20px;
     display: flex;
-    background-color: rgb(16, 15, 15);
+    background-color: rgba(16, 15, 15, 0.479);
     justify-content: space-evenly;
-    margin-left: -5px;
+  
     padding: 1px;
-    width: 100%;
+    height: 100px;
     margin: auto;
     gap: 1em;
    margin-top: -37px;
    position: sticky; 
-  margin-left: 0;
   
     top: 0; 
    
@@ -67,10 +66,10 @@ Link {
 .img {
  position:absolute;
     border: 2px solid black;
- width: 90px;
- height: 90px;
- margin-top: -23px;
- border-radius: 15px;
+ width: 80px;
+ height: 80px;
+border-radius: 15px;
+margin-top: -40px;
 }
 
 
@@ -121,3 +120,45 @@ Link {
 .signup:hover{
     background-color: rgba(15, 143, 255, 0.405);
 }
+
+.profile {
+    position: relative;
+    cursor: pointer;
+    color: white;
+    font-size: 30px;
+  }
+  
+  .dropdown-content {
+    position: absolute;
+    top: 40px;
+   left: 0;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+  
+  .dropdown-content p {
+    padding: 10px;
+    margin: 0;
+    color: black;
+  }
+  
+  .dropdown-content button {
+    font-size: 15px;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    background-color: rgb(250, 120, 120);
+  }
+  
+  
+  .myrooms{
+    color: black;
+  }

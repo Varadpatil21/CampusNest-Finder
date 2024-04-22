@@ -1,6 +1,16 @@
 .map-container{
-   margin-top: 6px;
-    margin-left: -50px;
-    margin-right: -50px;
-  min-height: 80vh;
+   /* margin-top: 6px; */
+   margin-top: 0px;
+    
+   
+   
+  min-height: 90vh;
+  border-radius: 15px;
+}
+
+.custom-marker {
+  background-color: #ff0000; /* Customize marker color */
+  width: 20px; /* Set marker width */
+  height: 20px; /* Set marker height */
+  border-radius: 50%; /* Make marker circular */
 }

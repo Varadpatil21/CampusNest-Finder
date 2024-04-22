@@ -1,34 +1,40 @@
-import React, { useRef, useEffect, useState } from 'react';
-import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
-import './MyMap.css'
-mapboxgl.accessToken = 'pk.eyJ1IjoidmFyYWRwYXRpbDIxIiwiYSI6ImNsdWxrZmtkejB2bXoyamxpc2hhNm55bHEifQ.h4QS4f7-hH_6qCTeRa1ptQ';
+import React,{useEffect} from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import "./MyMap.css"
+import axios from 'axios';
+import { useState } from 'react';
 
 export const MyMap = () => {
-    const mapContainer = useRef(null);
-    const map = useRef(null);
-    const [lng, setLng] = useState(73.761536);
-    const [lat, setLat] = useState(18.651674);
-    const [zoom, setZoom] = useState(15);
+    const [rooms, setRooms] = useState([]);
 
     useEffect(() => {
-        if (map.current) return; // initialize map only once
-        map.current = new mapboxgl.Map({
-            container: mapContainer.current,
-            style: 'mapbox://styles/mapbox/streets-v12',
-            center: [lng, lat],
-            zoom: zoom
-        });
+        const fetchRooms = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/rooms/getrooms');
+                setRooms(response.data.rooms);
+                console.log(response.data.rooms)
+            } catch (error) {
+                console.error('Error fetching rooms:', error);
+            }
+        };
 
-        
-        const marker = new mapboxgl.Marker()
-            .setLngLat([73.7632246830617, 18.647798963946705])
-            .setPopup(new mapboxgl.Popup().setHTML('<h3>Santosh Hostel</h3>'))
-            .addTo(map.current);
-    });
-
+        fetchRooms();
+    }, []);
     return (
-        <div>
-            <div ref={mapContainer} className="map-container" />
-        </div>
+        <MapContainer center={[18.651674, 73.761536]} zoom={15} className='map-container'>
+            <TileLayer
+                attribution='Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+             {rooms.map(room => (
+                <Marker key={room._id} position={[room.latitude, room.longitude]}>
+                    <Popup>
+                        <h3>{room.name}</h3>
+                        <p>{room.description}</p>
+                    </Popup>
+                </Marker>
+            ))}
+        </MapContainer>
     );
-}
+};

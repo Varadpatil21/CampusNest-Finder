@@ -3,14 +3,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Mynerve&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,500;1,600;1,700;1,800;1,900&display=swap');
 .hero {
     min-height: 116vh;
-    background-image: url('../../assets/images/background-img-2.png');
+    background-image: url('../../assets/images/back1.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+   background-size: cover;
     background-position: center;
     padding: 25px;
     margin-top: -200px;
-    margin-left: -50px;
-    margin-right: -50px;
+ 
     /* Set background color with opacity */
     background-color: rgba(0, 0, 0, 0);
     /* Adjust opacity value as needed */
@@ -18,20 +17,23 @@
 }
 .description{
     background-image: url('../../assets/images/back2.png');
-    min-height: 116vh;
+    min-height: 120vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    margin-left: -50px;
-    margin-right: -50px;
+    margin-left: -150px;
+    margin-right: -150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 .hero h1 {
     font-family: "Quintessential", serif;
     font-weight: 1500;
     font-style: normal;
-    margin-top: 250px;
-    font-size: 100px;
+    margin-top: 300px;
+    font-size: 110px;
     animation: glow 100000s infinite;
 
     width: 70%;
@@ -40,14 +42,14 @@
     align-items: center;
     justify-content: center;
     margin-left: 180px;
-    color: white;
+    color:black;
     margin-bottom: 6px;
     border-radius: 80px;
 }
 
 @keyframes glow {
     0% {
-        text-shadow: 0 0 5px rgb(49, 43, 5), 0 0 5px rgb(48, 43, 10), 0 0 5px rgb(49, 45, 19), 0 0 10px rgb(49, 45, 19), 0 0 5px rgb(49, 45, 19);
+        text-shadow: 0 0 5px rgb(255, 98, 36), 0 0 5px rgb(247, 86, 41), 0 0 5px rgb(240, 88, 18), 0 0 10px rgb(249, 102, 35), 0 0 25px rgb(247, 103, 25);
     }
 
     100% {
@@ -60,10 +62,18 @@
     font-size: 20px;
     font-weight: 700;
     font-style: normal;
-    background-color: rgb(249, 249, 249);
-    color: rgb(255, 151, 95);
+    background-color: black;
+    color: goldenrod;
     border-radius: 15px;
-    border: 2px solid rgb(251, 163, 62);
+   /* // border:1px solid white; */
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-left: 25rem;
+  text-align: center;
+}
+
+.hero h3 span:hover{
+  transform: scale(1.1);
+box-shadow: 0 0 15px #1074ff;
 }
 
 .search {
@@ -71,7 +81,7 @@
 
 }
 
-button {
+.search{
     font-size: 30px;
     border-radius: 25px;
     font-weight: 600;
@@ -79,6 +89,8 @@ button {
     color: white;
     font-family: 'Poppins', sans-serif;
     background-color: black;
+    margin:0 auto;
+    display:block;
     border: 2px solid white;
 }
 
@@ -90,9 +102,14 @@ button:hover {
 
   
   .container {
-    max-width: 1200px;
+  
     margin: 0 auto;
     text-align: center;
+
+  }
+
+  .container h2{
+    margin-top: 50px;
   }
   
   .features {
@@ -100,28 +117,29 @@ button:hover {
    flex-direction: column;
     justify-content: center;
     gap: 40px;
-    margin-top: 30px;
+    margin-top: 60px;
   }
   
   .feature {
     flex: 1 1 300px;
-    background-color: #fff;
+    backdrop-filter: blur(30px);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     height:120px;
     width: 350px;
+    border: 2px solid black;
   }
   
   .feature h3 {
     font-size: 24px;
     margin-bottom: 10px;
-    color: #333;
+    color: #050505;
   }
   
   .feature p {
     font-size: 18px;
-    color: #666;
+    color: #000000;
   }
   
  .feature1{
@@ -133,16 +151,16 @@ button:hover {
  .footer {
     background-color: #333;
     color: #fff;
-    
-    margin-left: -50px;
-    margin-right: -50px;
-    height: 250px;
+    bottom: 0;
+    margin-left: -150px;
+    margin-right: -150px;
+   
     margin-bottom: 0;
+    margin-bottom: -35px;
   }
   
  
   .footer-content {
-    margin-top:-20rem ;
     display: flex;
     justify-content: space-between;
    gap:20rem;
